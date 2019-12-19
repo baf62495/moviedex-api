@@ -8,7 +8,7 @@ const app = express()
 app.use(morgan('dev'))
 
 app.get('/movie', function handleGetMovies(req, res) {
-    res.send(MOVIEDEX)
+    res.json(MOVIEDEX)
 })
 
 const PORT = 8000
