@@ -5,8 +5,8 @@ const app = express()
 
 app.use(morgan('dev'))
 
-app.use((req, res) => {
-    res.send('Server working!')
+app.get('/movie', function handleGetMovies(req, res) {
+    res.send('movie endpoint working')
 })
 
 const PORT = 8000
