@@ -1,12 +1,14 @@
 const express = require('express')
 const morgan = require('morgan')
 
+const MOVIEDEX = require('./moviedex.json')
+
 const app = express()
 
 app.use(morgan('dev'))
 
 app.get('/movie', function handleGetMovies(req, res) {
-    res.send('movie endpoint working')
+    res.send(MOVIEDEX)
 })
 
 const PORT = 8000
