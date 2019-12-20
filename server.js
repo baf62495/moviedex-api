@@ -24,7 +24,22 @@ app.use(function validateBearerToken(req, res, next) {
 })
 
 app.get('/movie', function handleGetMovies(req, res) {
-    res.json(MOVIEDEX)
+    let response = MOVIEDEX
+    const { genre, country } = req.query
+
+    if (genre) {
+        response = response.filter(movie =>
+            movie.genre.toLowerCase().includes(genre.toLowerCase())    
+        )
+    }
+
+    if(country) {
+        response = response.filter(movie =>
+            movie.country.toLowerCase().includes(country.toLowerCase())    
+        )
+    }
+    
+    res.json(response)
 })
 
 const PORT = 8000
